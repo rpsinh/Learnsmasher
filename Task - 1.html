@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation - LearnSmasher</title>
+</head>
+<body>
+    <script>
+        function Validation(){
+
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            
+            if(fname==null || fname=="")
+            {
+                alert("First Name is required")
+                return false;
+                }
+            if(lname==null || lname=="")
+                {
+                    alert("Last Name is required")
+                    return false;
+                }
+                    
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) 
+            {
+            alert("Invalid email address");
+            return false;
+            }
+
+            if(password==null || password=="")
+            {
+                alert("Password is required")
+                return false;
+            }
+            
+            if(password.length < 8)
+            {
+                alert("Password must be at least 8 characters long");
+                return false;
+            }
+
+            alert("Form submitted!");
+            document.getElementById("myForm").submit();        
+            }
+        
+    </script>
+
+
+
+
+    <form name="Validation_Form" onsubmit="Validation()">
+        <h2 align="center">Form Validation using Javascript for LearnSmasher</h2>
+        
+        <label for="fname">First Name:</label> 
+        <input type="text" id="fname" name="fname" required>
+        <br>
+        <br>
+
+        <label for="lname">Last Name:</label> 
+        <input type="text" id="lname" name="lname" required>
+        <br>
+        <br>
+
+        <label for="email">E-mail:</label>
+        <input type="text" name="email" id="email" required>
+        <br>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        <br>
+        <br>
+
+        <input type="submit" id="submit" value="Submit">
+
+
+        
+
+    </form>
+    
+</body>
+</html>
